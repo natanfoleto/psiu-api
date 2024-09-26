@@ -1,0 +1,19 @@
+{
+  "include": [
+    "src/**/*",
+    "@types/*.d.ts"
+  ],
+  "compilerOptions": {
+    "lib": [
+      "es2023"
+    ],
+    "target": "es2022",
+    "module": "Node16",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Node16"
+  }
+}
