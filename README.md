@@ -9,8 +9,8 @@
   - [x] Gerar senha aleatória para primeiro acesso
   - [] Criar hash para a senha aleatória gerada
 
-- [] Editar aluno
-  - [] Deve ser possível alterar o nome e data de nascimento do aluno
+- [x] Editar aluno
+  - [x] Deve ser possível alterar o nome e data de nascimento do aluno
   
 - [] Atualizar senha
   - [] Não deve ser possível colocar uma senha fraca
@@ -18,7 +18,8 @@
 - [] Deletar aluno
   - [] Deve utilizar soft delete
   
-- [] Buscar alunos
+- [x] Buscar alunos
+  - [] Criar páginação na busca de alunos
 
 ### Post
 

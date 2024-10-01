@@ -10,12 +10,10 @@ interface Body {
 }
 
 export async function createStudent(
-  request: Request,
+  request: Request<Body>,
   response: Response,
 ): Promise<void> {
   const { ra, name, birthdate } = request.body as Body
-
-  console.log()
 
   const studentByRa = db.select('students', { ra })
 
@@ -34,6 +32,9 @@ export async function createStudent(
     name,
     password: generatePassword(),
     birthdate: new Date(birthdate),
+    active: true,
+    createdAt: new Date(),
+    updatedAt: new Date(),
   }
 
   db.insert('students', student)
