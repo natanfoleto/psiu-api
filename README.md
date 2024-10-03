@@ -7,19 +7,27 @@
 - [x] Cadastrar aluno
   - [x] Não deve ser possível cadastrar RA já cadastrado
   - [x] Gerar senha aleatória para primeiro acesso
-  - [] Criar hash para a senha aleatória gerada
+  - [x] Criar hash para a senha aleatória gerada
 
 - [x] Editar aluno
   - [x] Deve ser possível alterar o nome e data de nascimento do aluno
+  - [x] Não deve ser possível atualizar um student inativo
   
 - [] Atualizar senha
   - [] Não deve ser possível colocar uma senha fraca
 
-- [] Deletar aluno
-  - [] Deve utilizar soft delete
+- [x] Deletar aluno
+  - [x] Deve utilizar soft delete
+  - [x] Não deve ser possível deletar um student inativo
   
 - [x] Buscar alunos
   - [] Criar páginação na busca de alunos
+
+### Autenticação
+
+- [] Autenticação com senha
+  - [] Verificar se o RA existe
+  - [] Criar um token de autenticação
 
 ### Post
 

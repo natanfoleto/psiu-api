@@ -1,1 +1,14 @@
-{"students":[{"id":"b2b9abc4-d7a8-4d42-8906-fdb97b25d2a8","ra":"RA231254142","name":"Natan S Foleto","password":"DUvui5","birthdate":"2005-01-01T00:00:00.000Z","active":false,"createdAt":"2024-10-01T01:20:41.780Z","updatedAt":"2024-10-01T01:31:34.331Z"},{"id":"3d24bbee-3807-44fc-b0b6-787072cbaf87","ra":"RA231234142","name":"Natan","password":"Dp90us","birthdate":"1999-07-10T00:00:00.000Z","active":false,"createdAt":"2024-10-01T01:42:43.719Z","updatedAt":"2024-10-01T01:43:06.694Z"},{"id":"e468d290-f487-4af0-ba0c-8bb16d1e4de8","ra":"RA231234242","name":"Natan","password":"9zEius","birthdate":"1999-07-10T00:00:00.000Z","active":true,"createdAt":"2024-10-01T01:42:55.227Z","updatedAt":"2024-10-01T01:42:55.227Z"}]}
+{
+  "students": [
+    {
+      "id": "7b72d5ae-6332-43d4-91d8-26e82b878190",
+      "ra": "RA231234552",
+      "name": "Natan",
+      "passwordHash": "$2b$10$B.2GzrqaWCJ9bbN.qxADvOhtbS62EVzlcYmRklqFfgjknXq7YfcG.",
+      "birthdate": "1999-07-10T00:00:00.000Z",
+      "active": true,
+      "createdAt": "2024-10-03T01:41:06.073Z",
+      "updatedAt": "2024-10-03T01:41:06.073Z"
+    }
+  ]
+}
