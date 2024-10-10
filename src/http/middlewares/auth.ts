@@ -12,9 +12,9 @@ export async function authentication(
   next: NextFunction,
 ) {
   try {
-    const token = request.headers.authorization
+    const bearerToken = request.headers.authorization
 
-    if (!token) {
+    if (!bearerToken) {
       response.status(401).json({
         result: false,
         message: 'Token is missing',
@@ -22,6 +22,8 @@ export async function authentication(
 
       return
     }
+
+    const [, token] = bearerToken.split(' ')
 
     const { id } = verify(token, 'psiu') as Payload
 
@@ -49,6 +51,8 @@ export async function authentication(
 
     next()
   } catch (error) {
+    console.log(error)
+
     response.status(401).json({
       result: false,
       message: 'Authentication failed',
