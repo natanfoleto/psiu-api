@@ -13,10 +13,10 @@
   - [x] Deve ser possível alterar o nome e data de nascimento do aluno
   - [x] Não deve ser possível atualizar um student inativo
   
-- [] Atualizar senha
-  - [] Não deve ser possível colocar uma senha fraca
-  - [] Checar a senha atual do estudante
-  - [] Confirmar nova senha duas vezes
+- [x] Atualizar senha
+  - [x] Não deve ser possível colocar uma senha fraca
+  - [x] Checar a senha atual do estudante
+  - [x] Confirmar nova senha duas vezes
 
 - [x] Deletar aluno
   - [x] Deve utilizar soft delete
