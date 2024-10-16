@@ -1,1 +1,34 @@
-{"students":[{"id":"7b72d5ae-6332-43d4-91d8-26e82b878190","ra":"RA231234552","name":"Natan Foleto","passwordHash":"$2b$10$B.2GzrqaWCJ9bbN.qxADvOhtbS62EVzlcYmRklqFfgjknXq7YfcG.","birthdate":"2005-01-01T00:00:00.000Z","active":false,"createdAt":"2024-10-03T01:41:06.073Z","updatedAt":"2024-10-09T23:42:06.032Z"},{"id":"2a506475-67bd-40ac-b872-f7381b786033","ra":"RA231234551","name":"Natan","passwordHash":"$2b$10$JWk1xQH/whq3L6h7HUfIVuy6HTVZ0WyfNlDefRqkTRODaWztH8oLa","birthdate":"1999-07-10T00:00:00.000Z","active":true,"createdAt":"2024-10-09T23:44:52.100Z","updatedAt":"2024-10-14T23:52:24.944Z"}]}
+{
+  "students": [
+    {
+      "id": "7b72d5ae-6332-43d4-91d8-26e82b878190",
+      "ra": "RA231234552",
+      "name": "Natan Foleto",
+      "passwordHash": "$2b$10$B.2GzrqaWCJ9bbN.qxADvOhtbS62EVzlcYmRklqFfgjknXq7YfcG.",
+      "birthdate": "2005-01-01T00:00:00.000Z",
+      "active": false,
+      "createdAt": "2024-10-03T01:41:06.073Z",
+      "updatedAt": "2024-10-09T23:42:06.032Z"
+    },
+    {
+      "id": "2a506475-67bd-40ac-b872-f7381b786033",
+      "ra": "RA231234551",
+      "name": "Natan",
+      "passwordHash": "$2b$10$JWk1xQH/whq3L6h7HUfIVuy6HTVZ0WyfNlDefRqkTRODaWztH8oLa",
+      "birthdate": "1999-07-10T00:00:00.000Z",
+      "active": true,
+      "createdAt": "2024-10-09T23:44:52.100Z",
+      "updatedAt": "2024-10-14T23:52:24.944Z"
+    }
+  ],
+  "posts": [
+    {
+      "id": "3a27b6e6-6cbf-4270-82e7-28f7d4ddff36",
+      "studentId": "2a506475-67bd-40ac-b872-f7381b786033",
+      "content": "Hoje estou muito triste, porque eu estava feliz com minha calça, e o garoto do 9B me zoou!",
+      "active": true,
+      "publishedAt": "2024-10-15T23:58:47.548Z",
+      "updatedAt": null
+    }
+  ]
+}

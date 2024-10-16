@@ -38,8 +38,9 @@
 
 ### Post
 
-- [] Criar post
+- [x] Criar post
 - [] Editar post
+  - [] Dever ser possível editar o conteúdo do post
 - [] Deletar post
 - [] Buscar posts
 - [] Buscar posts por aluno
