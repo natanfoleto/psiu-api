@@ -1,16 +1,22 @@
 import { db } from '@database/client'
+import { randomUUID } from 'crypto'
 import { Request, Response } from 'express'
 
 interface Params {
   postId: string
 }
 
-export async function inactivatePost(
+interface Body {
+  content: string
+}
+
+export async function createComment(
   request: Request<Params>,
   response: Response,
 ): Promise<void> {
   const { studentId } = request
   const { postId } = request.params
+  const { content } = request.body as Body
 
   const post = db.findUnique('posts', { id: postId })
 
@@ -23,22 +29,18 @@ export async function inactivatePost(
     return
   }
 
-  if (post.studentId !== studentId) {
-    response.status(401).json({
-      result: 'error',
-      message: 'Operation not allowed',
-    })
-
-    return
-  }
-
-  db.update('posts', postId, {
-    active: false,
-    updatedAt: new Date(),
+  db.create('comments', {
+    id: randomUUID(),
+    studentId,
+    postId,
+    content,
+    active: true,
+    commentedAt: new Date(),
+    updatedAt: null,
   })
 
-  response.json({
+  response.status(201).json({
     result: 'success',
-    message: 'Post deleted',
+    message: 'Comment created',
   })
 }

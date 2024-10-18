@@ -25,6 +25,6 @@ export async function inactivateStudent(
 
   response.json({
     result: 'success',
-    message: 'Student inactivated',
+    message: 'Student deleted',
   })
 }

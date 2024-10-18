@@ -1,1 +1,64 @@
-{"students":[{"id":"7b72d5ae-6332-43d4-91d8-26e82b878190","ra":"RA231234552","name":"Natan Foleto","passwordHash":"$2b$10$B.2GzrqaWCJ9bbN.qxADvOhtbS62EVzlcYmRklqFfgjknXq7YfcG.","birthdate":"2005-01-01T00:00:00.000Z","active":false,"createdAt":"2024-10-03T01:41:06.073Z","updatedAt":"2024-10-09T23:42:06.032Z"},{"id":"2a506475-67bd-40ac-b872-f7381b786033","ra":"RA231234551","name":"Natan","passwordHash":"$2b$10$JWk1xQH/whq3L6h7HUfIVuy6HTVZ0WyfNlDefRqkTRODaWztH8oLa","birthdate":"1999-07-10T00:00:00.000Z","active":true,"createdAt":"2024-10-09T23:44:52.100Z","updatedAt":"2024-10-14T23:52:24.944Z"},{"id":"1d5f707e-c121-45b0-ba68-7e277dacfa2a","ra":"RA231234590","name":"Saulo","passwordHash":"$2b$10$RKPp5rV130rR3yVVsap6beLRtmIuokE0777h/9ZDZiBrMyP.UD/H6","birthdate":"1999-07-10T00:00:00.000Z","active":true,"createdAt":"2024-10-17T01:27:12.495Z","updatedAt":"2024-10-17T01:27:12.495Z"}],"posts":[{"id":"3a27b6e6-6cbf-4270-82e7-28f7d4ddff36","studentId":"2a506475-67bd-40ac-b872-f7381b786033","content":"Hoje estou muito triste, porque eu estava feliz com minha calça, e o garoto do 9B me zoou!","active":false,"publishedAt":"2024-10-15T23:58:47.548Z","updatedAt":"2024-10-17T01:14:49.252Z"},{"id":"fdc36c63-4159-46c2-8a09-018a0176f023","studentId":"2a506475-67bd-40ac-b872-f7381b786033","content":"Post atualizado!","active":true,"publishedAt":"2024-10-17T01:05:14.794Z","updatedAt":"2024-10-17T01:37:40.995Z"},{"id":"f6fbbdf1-c4f7-4378-ad06-10ace1ddf50a","studentId":"2a506475-67bd-40ac-b872-f7381b786033","content":"Post atualizado!","active":true,"publishedAt":"2024-10-17T01:05:24.810Z","updatedAt":"2024-10-17T01:11:28.684Z"},{"id":"27563f42-8867-48f0-b016-94df6888210e","studentId":"1d5f707e-c121-45b0-ba68-7e277dacfa2a","content":"Segunda","active":true,"publishedAt":"2024-10-17T01:27:40.265Z","updatedAt":null},{"id":"f13984ee-7772-43e9-a175-05eb9f2626d7","studentId":"1d5f707e-c121-45b0-ba68-7e277dacfa2a","content":"Terça","active":true,"publishedAt":"2024-10-17T01:27:43.175Z","updatedAt":null},{"id":"6b281906-8e3c-4d7c-8771-ffe206d1525c","studentId":"1d5f707e-c121-45b0-ba68-7e277dacfa2a","content":"Quarta","active":true,"publishedAt":"2024-10-17T01:27:45.785Z","updatedAt":null}]}
+{
+  "students": [
+    {
+      "id": "63befa51-a9dd-4d50-8fd5-36c2558402c0",
+      "ra": "RA123456789",
+      "name": "Natan Foleto",
+      "passwordHash": "$2b$10$e89.ODxBpuA2FN1obtQ.De0rdmlGElMJPpLU7sfEVJpsPCqIW/Y3a",
+      "birthdate": "1999-07-10T00:00:00.000Z",
+      "active": true,
+      "createdAt": "2024-10-17T23:47:15.741Z",
+      "updatedAt": "2024-10-17T23:47:15.742Z"
+    },
+    {
+      "id": "5435e879-45d9-4724-a515-358dab5776cd",
+      "ra": "RA987654321",
+      "name": "Kaique Com K",
+      "passwordHash": "$2b$10$yce4cjqShEXoHQwI8vKZJ.JF6mfjAClnlzQZpe2o5hcBuyirI7ppm",
+      "birthdate": "1999-07-10T00:00:00.000Z",
+      "active": true,
+      "createdAt": "2024-10-18T01:03:57.459Z",
+      "updatedAt": "2024-10-18T01:03:57.459Z"
+    },
+    {
+      "id": "1cf31999-e034-4495-9310-c9b70b7af95b",
+      "ra": "RA456789132",
+      "name": "Xuxu",
+      "passwordHash": "$2b$10$S.q3U8or2wg2WPhSKOZEeeamMJ9wXoxtad57YAod3DwdP66GP.hUm",
+      "birthdate": "1999-07-10T00:00:00.000Z",
+      "active": true,
+      "createdAt": "2024-10-18T01:04:35.072Z",
+      "updatedAt": "2024-10-18T01:04:35.072Z"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1188429b-5b57-4a02-b176-ab287c1e1669",
+      "studentId": "63befa51-a9dd-4d50-8fd5-36c2558402c0",
+      "content": "Cortei o pulso galera!",
+      "active": true,
+      "publishedAt": "2024-10-17T23:48:43.544Z",
+      "updatedAt": null
+    }
+  ],
+  "comments": [
+    {
+      "id": "988b5441-6058-4d3e-a196-5da878683180",
+      "studentId": "63befa51-a9dd-4d50-8fd5-36c2558402c0",
+      "postId": "1188429b-5b57-4a02-b176-ab287c1e1669",
+      "content": "Eu sou dono do post",
+      "active": false,
+      "commentedAt": "2024-10-18T01:06:42.370Z",
+      "updatedAt": "2024-10-18T01:08:23.640Z"
+    },
+    {
+      "id": "a04943a3-8f6e-43f8-a554-57b591e494de",
+      "studentId": "1cf31999-e034-4495-9310-c9b70b7af95b",
+      "postId": "1188429b-5b57-4a02-b176-ab287c1e1669",
+      "content": "Oi eu sou o xuxu!",
+      "active": false,
+      "commentedAt": "2024-10-18T01:06:56.713Z",
+      "updatedAt": "2024-10-18T01:10:17.752Z"
+    }
+  ]
+}

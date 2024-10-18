@@ -39,11 +39,11 @@
 ### Post
 
 - [x] Criar post
-- [] Editar post
-  - [] Dever ser possível editar o conteúdo do post
-- [] Deletar post
-- [] Buscar posts
-- [] Buscar posts por aluno
+- [x] Editar post
+  - [x] Dever ser possível editar o conteúdo do post
+- [x] Deletar post
+- [x] Buscar posts
+- [x] Buscar posts por aluno
 
 ### ComentarioPost
 
