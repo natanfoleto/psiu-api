@@ -23,7 +23,7 @@
   - [x] Não deve ser possível deletar um student inativo
   
 - [x] Buscar alunos
-  - [] Criar páginação na busca de alunos
+  - [] Criar páginação
 
 ### Autenticação
 
@@ -43,17 +43,26 @@
   - [x] Dever ser possível editar o conteúdo do post
 - [x] Deletar post
 - [x] Buscar posts
+  - [x] Incluir comentários
+  - [] Incluir reações
+  - [] Criar páginação
 - [x] Buscar posts por aluno
+  - [] Criar páginação
 
 ### ComentarioPost
 
-- [] Criar comentário
-- [] Editar comentário
-- [] Deletar comentário
+- [x] Criar comentário
+- [x] Editar comentário
+- [x] Deletar comentário
 
 ### ReacaoPost
 
-- [] Criar reação
+- [] Criar reação para o post/comentário
+  - [] Apoio ❤️
+  - [] Entendo você 👐
+  - [] Força 💪
+  - [] Tristeza 😢
+  - [] Estamos juntos 🤝
 - [] Deletar reação
 
 ### ReacaoComentario

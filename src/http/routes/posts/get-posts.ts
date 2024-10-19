@@ -7,8 +7,29 @@ export async function getPosts(
 ): Promise<void> {
   const posts = db.findMany('posts', { active: true })
 
+  const postsWithComments = posts.map((post) => {
+    const comments = db.findMany('comments', { postId: post.id, active: true })
+
+    const summaryComments = comments.map((comment) => ({
+      id: comment.id,
+      postId: comment.postId,
+      content: comment.content,
+      commentedAt: comment.commentedAt,
+      updatedAt: comment.updatedAt,
+    }))
+
+    const summaryPost = {
+      id: post.id,
+      content: post.content,
+      publishedAt: post.publishedAt,
+      updatedAt: post.updatedAt,
+    }
+
+    return { ...summaryPost, comments: summaryComments }
+  })
+
   response.json({
     result: 'success',
-    data: posts,
+    data: postsWithComments,
   })
 }

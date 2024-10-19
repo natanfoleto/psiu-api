@@ -47,7 +47,7 @@
       "studentId": "63befa51-a9dd-4d50-8fd5-36c2558402c0",
       "postId": "1188429b-5b57-4a02-b176-ab287c1e1669",
       "content": "Eu sou dono do post",
-      "active": false,
+      "active": true,
       "commentedAt": "2024-10-18T01:06:42.370Z",
       "updatedAt": "2024-10-18T01:08:23.640Z"
     },
@@ -59,6 +59,33 @@
       "active": false,
       "commentedAt": "2024-10-18T01:06:56.713Z",
       "updatedAt": "2024-10-18T01:10:17.752Z"
+    },
+    {
+      "id": "1e386631-1f72-442a-8bc8-0c445b91a249",
+      "studentId": "1cf31999-e034-4495-9310-c9b70b7af95b",
+      "postId": "1188429b-5b57-4a02-b176-ab287c1e1669",
+      "content": "Comentário 2",
+      "active": true,
+      "commentedAt": "2024-10-18T23:28:23.054Z",
+      "updatedAt": null
+    },
+    {
+      "id": "062ba3bc-3839-4390-a82e-875afe452444",
+      "studentId": "1cf31999-e034-4495-9310-c9b70b7af95b",
+      "postId": "1188429b-5b57-4a02-b176-ab287c1e1669",
+      "content": "Comentário 335",
+      "active": true,
+      "commentedAt": "2024-10-18T23:28:27.191Z",
+      "updatedAt": null
+    }
+  ],
+  "posts_reactions": [
+    {
+      "id": "1bba5682-22fb-42d1-bdea-5fd8f71c5963",
+      "studentId": "63befa51-a9dd-4d50-8fd5-36c2558402c0",
+      "postId": "1188429b-5b57-4a02-b176-ab287c1e1669",
+      "type": 1,
+      "reactedAt": "2024-10-19T00:58:48.863Z"
     }
   ]
 }
