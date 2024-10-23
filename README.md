@@ -44,7 +44,7 @@
 - [x] Deletar post
 - [x] Buscar posts
   - [x] Incluir comentários
-  - [] Incluir reações
+  - [x] Incluir reações
   - [] Criar páginação
 - [x] Buscar posts por aluno
   - [] Criar páginação
@@ -63,7 +63,7 @@
   - [] Força 💪
   - [] Tristeza 😢
   - [] Estamos juntos 🤝
-- [] Deletar reação
+- [] Deletar reação post/comentário
 
 ### ReacaoComentario
 
