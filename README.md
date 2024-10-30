@@ -44,6 +44,7 @@
 - [x] Deletar post
 - [x] Buscar posts
   - [x] Incluir comentários
+    - [] Incluir reações
   - [x] Incluir reações
   - [] Criar páginação
 - [x] Buscar posts por aluno
@@ -57,15 +58,20 @@
 
 ### ReacaoPost
 
-- [] Criar reação para o post/comentário
-  - [] Apoio ❤️
-  - [] Entendo você 👐
-  - [] Força 💪
-  - [] Tristeza 😢
-  - [] Estamos juntos 🤝
-- [] Deletar reação post/comentário
+- [x] Criar reação para o post/comentário
+  - [x] Apoio ❤️
+  - [x] Entendo você 👐
+  - [x] Força 💪
+  - [x] Tristeza 😢
+  - [x] Estamos juntos 🤝
+- [x] Deletar reação post/comentário
 
 ### ReacaoComentario
 
-- [] Criar reação
-- [] Deletar reação
+- [x] Criar reação
+  - [x] Apoio ❤️
+  - [x] Entendo você 👐
+  - [x] Força 💪
+  - [x] Tristeza 😢
+  - [x] Estamos juntos 🤝
+- [x] Deletar reação

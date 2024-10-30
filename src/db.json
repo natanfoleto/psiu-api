@@ -40,5 +40,14 @@
       "commentedAt": "2024-10-23T01:01:03.864Z",
       "updatedAt": null
     }
+  ],
+  "comments_reactions": [
+    {
+      "id": "c09b0845-488d-4046-9fdc-9f741dbd21b3",
+      "studentId": "31a97885-c9e6-40f8-93b8-b54d71849435",
+      "commentId": "ad99bf8a-533f-4b01-8f1b-9820725b289d",
+      "type": "ENTENDO_VOCE",
+      "reactedAt": "2024-10-30T23:18:06.302Z"
+    }
   ]
 }
