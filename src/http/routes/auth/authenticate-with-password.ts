@@ -49,6 +49,7 @@ export async function authenticateWithPassword(
 
   response.json({
     result: 'success',
+    message: 'Logado com sucesso!',
     data: {
       token,
       student: {
