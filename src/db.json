@@ -9,6 +9,16 @@
       "active": true,
       "createdAt": "2024-11-22T01:00:26.962Z",
       "updatedAt": "2024-11-22T01:00:26.962Z"
+    },
+    {
+      "id": "2bb0d081-c386-4eaf-8267-9f56c5a5735e",
+      "ra": "RA2",
+      "name": "Lineker",
+      "passwordHash": "$2b$10$DqxZhNtQVIqsGRO4NaLvoeCP/q8hYY06zuKP2oks5evZvuHlLuUIm",
+      "birthdate": "1999-07-10T00:00:00.000Z",
+      "active": true,
+      "createdAt": "2024-11-23T02:13:18.786Z",
+      "updatedAt": "2024-11-23T02:13:18.786Z"
     }
   ]
 }
