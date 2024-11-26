@@ -5,9 +5,15 @@ export async function getPosts(
   request: Request,
   response: Response,
 ): Promise<void> {
-  const posts = db.findMany('posts', { active: true })
+  const { pag, take } = request.query
 
-  const postsResponse = posts.map((post) => {
+  const { first, next, prev, pages, items, last, data } = db.findManyPagination(
+    'posts',
+    { pag: Number(pag || 5), take: Number(take || 1) },
+    { active: true },
+  )
+
+  const postsResponse = data.map((post) => {
     const comments = db.findMany('comments', { postId: post.id, active: true })
     const reactions = db.findMany('posts_reactions', { postId: post.id })
 
@@ -56,6 +62,12 @@ export async function getPosts(
 
   response.json({
     result: 'success',
+    first,
+    next,
+    prev,
+    pages,
+    items,
+    last,
     data: postsResponse,
   })
 }

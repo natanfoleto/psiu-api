@@ -13,6 +13,21 @@ interface Where {
   [key: string]: any
 }
 
+interface Pagination {
+  pag?: number
+  take?: number
+}
+
+interface PaginatedResult<T> {
+  first: number
+  prev: number | null
+  next: number | null
+  last: number
+  pages: number
+  items: number
+  data: T[]
+}
+
 export class Database {
   #database: { [key: string]: Row[] } = {}
 
@@ -45,6 +60,60 @@ export class Database {
     }
 
     return data
+  }
+
+  findManyPagination(
+    table: string,
+    pagination: Pagination,
+    where?: Where,
+  ): PaginatedResult<Row> {
+    let data = this.#database[table] ?? []
+
+    if (where) {
+      data = data.filter((row) => {
+        return Object.entries(where).every(([key, value]) => {
+          if (typeof row[key] === 'boolean') return row[key] === value
+
+          return row[key]?.includes(value)
+        })
+      })
+    }
+
+    const totalItems = data.length // Total de itens filtrados
+    const take = pagination.take ?? totalItems // Itens por página (ou todos)
+    const pag = pagination.pag ?? 0 // Página atual (começando em 0)
+
+    // Calcular "skip" com base na página
+    const skip = pag * take
+
+    const totalPages = Math.ceil(totalItems / take) // Quantidade total de páginas
+
+    // Verificar se a página é válida
+    if (pag < 0 || pag >= totalPages) {
+      return {
+        first: 0,
+        prev: null,
+        next: null,
+        last: totalPages - 1,
+        pages: totalPages,
+        items: totalItems,
+        data: [],
+      }
+    }
+
+    // Dados paginados
+    const paginatedData = data.slice(skip, skip + take)
+
+    // Retornar o objeto de paginação
+    return {
+      first: 0,
+      prev: pag > 0 ? pag - 1 : null,
+      next: pag < totalPages - 1 ? pag + 1 : null,
+      last: totalPages - 1,
+      pages: totalPages,
+      items: totalItems,
+      data: paginatedData,
+    }
   }
 
   // SELECT UNIQUE
