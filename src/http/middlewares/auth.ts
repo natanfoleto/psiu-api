@@ -12,9 +12,11 @@ export async function authentication(
   next: NextFunction,
 ) {
   try {
-    const bearerToken = request.headers.authorization
+    console.log(request.headers)
 
-    if (!bearerToken) {
+    const cookieToken = request.headers.cookie
+
+    if (!cookieToken) {
       response.status(401).json({
         result: false,
         message: 'Token is missing',
@@ -23,7 +25,7 @@ export async function authentication(
       return
     }
 
-    const [, token] = bearerToken.split(' ')
+    const [, token] = cookieToken.split('=')
 
     const { id } = verify(token, 'psiu') as Payload
 

@@ -20,5 +20,60 @@
       "createdAt": "2024-11-23T02:13:18.786Z",
       "updatedAt": "2024-11-23T02:13:18.786Z"
     }
+  ],
+  "posts": [
+    {
+      "id": "da66b62a-a619-47ef-a0c0-ddf83cebc9b6",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "content": "Post número 1",
+      "active": true,
+      "publishedAt": "2024-11-26T00:03:45.262Z",
+      "updatedAt": null
+    },
+    {
+      "id": "b574d918-bde4-4d19-9f1a-116d6d19d6ae",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "content": "Post número 2",
+      "active": true,
+      "publishedAt": "2024-11-26T00:03:48.210Z",
+      "updatedAt": null
+    },
+    {
+      "id": "91b4f743-e2b2-414b-b146-281720eea8f5",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "content": "Post número 3",
+      "active": true,
+      "publishedAt": "2024-11-26T01:03:23.581Z",
+      "updatedAt": null
+    }
+  ],
+  "comments": [
+    {
+      "id": "becef36a-8c87-4afe-bb95-e9aae5df8235",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "postId": "da66b62a-a619-47ef-a0c0-ddf83cebc9b6",
+      "content": "Comentário 335",
+      "active": true,
+      "commentedAt": "2024-11-26T00:04:57.216Z",
+      "updatedAt": null
+    }
+  ],
+  "posts_reactions": [
+    {
+      "id": "f5f38291-1852-45be-baaf-9e30fd5d0581",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "postId": "da66b62a-a619-47ef-a0c0-ddf83cebc9b6",
+      "type": "ENTENDO_VOCE",
+      "reactedAt": "2024-11-26T00:05:05.969Z"
+    }
+  ],
+  "comments_reactions": [
+    {
+      "id": "e1291728-68f6-421e-937b-42b03cb3b940",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "commentId": "becef36a-8c87-4afe-bb95-e9aae5df8235",
+      "type": "ENTENDO_VOCE",
+      "reactedAt": "2024-11-26T00:05:41.583Z"
+    }
   ]
 }
