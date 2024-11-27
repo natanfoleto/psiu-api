@@ -45,6 +45,22 @@
       "active": true,
       "publishedAt": "2024-11-26T01:03:23.581Z",
       "updatedAt": null
+    },
+    {
+      "id": "1edf95c3-673c-4795-a7ff-5acf4294a6b6",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "content": "Sobre a fome que o xuxu trouxe para a sala!",
+      "active": true,
+      "publishedAt": "2024-11-26T23:26:20.351Z",
+      "updatedAt": null
+    },
+    {
+      "id": "b7374992-2814-4607-a13b-55bc31e9c62f",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "content": "Post test",
+      "active": true,
+      "publishedAt": "2024-11-27T01:15:52.436Z",
+      "updatedAt": null
     }
   ],
   "comments": [
@@ -55,6 +71,15 @@
       "content": "Comentário 335",
       "active": true,
       "commentedAt": "2024-11-26T00:04:57.216Z",
+      "updatedAt": null
+    },
+    {
+      "id": "23310622-2d34-4f40-bfb7-ee95aa986503",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "postId": "1edf95c3-673c-4795-a7ff-5acf4294a6b6",
+      "content": "Confesso que também fiquei com fome!",
+      "active": true,
+      "commentedAt": "2024-11-26T23:54:57.153Z",
       "updatedAt": null
     }
   ],

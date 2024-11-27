@@ -12,8 +12,6 @@ export async function authentication(
   next: NextFunction,
 ) {
   try {
-    console.log(request.headers)
-
     const cookieToken = request.headers.cookie
 
     if (!cookieToken) {
