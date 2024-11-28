@@ -37,8 +37,15 @@ export async function createPostReaction(
 
   if (postReaction) {
     if (postReaction.type !== type) {
+      console.log(type)
+
       db.update('posts_reactions', postReaction.id, {
         type,
+      })
+
+      response.status(201).json({
+        result: 'success',
+        message: 'Post reacted',
       })
 
       return
