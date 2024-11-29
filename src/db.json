@@ -23,136 +23,72 @@
   ],
   "posts": [
     {
-      "id": "da66b62a-a619-47ef-a0c0-ddf83cebc9b6",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "content": "Post número 1",
+      "id": "3d64b321-6fc1-4082-9c8a-4d076168a2c3",
+      "studentId": "2bb0d081-c386-4eaf-8267-9f56c5a5735e",
+      "content": "Post do RA2",
       "active": true,
-      "publishedAt": "2024-11-26T00:03:45.262Z",
+      "publishedAt": "2024-11-28T23:51:57.107Z",
       "updatedAt": null
     },
     {
-      "id": "b574d918-bde4-4d19-9f1a-116d6d19d6ae",
+      "id": "74ac0b39-21dc-4c3c-8c92-b4226dd9f5c9",
       "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "content": "Post número 2",
+      "content": "Post do RA1",
       "active": true,
-      "publishedAt": "2024-11-26T00:03:48.210Z",
+      "publishedAt": "2024-11-28T23:52:09.563Z",
       "updatedAt": null
     },
     {
-      "id": "91b4f743-e2b2-414b-b146-281720eea8f5",
+      "id": "5c6b6187-8aca-43d9-b680-d52102c2f5ff",
       "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "content": "Post número 3",
+      "content": "Olá mundo!",
       "active": true,
-      "publishedAt": "2024-11-26T01:03:23.581Z",
-      "updatedAt": null
-    },
-    {
-      "id": "1edf95c3-673c-4795-a7ff-5acf4294a6b6",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "content": "Sobre a fome que o xuxu trouxe para a sala!",
-      "active": true,
-      "publishedAt": "2024-11-26T23:26:20.351Z",
-      "updatedAt": null
-    },
-    {
-      "id": "b7374992-2814-4607-a13b-55bc31e9c62f",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "content": "Post test",
-      "active": true,
-      "publishedAt": "2024-11-27T01:15:52.436Z",
-      "updatedAt": null
-    },
-    {
-      "id": "94dbfaaa-a6a5-4d86-8675-e21554a7ac61",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "content": "Allooow!",
-      "active": true,
-      "publishedAt": "2024-11-27T23:38:05.450Z",
-      "updatedAt": null
-    },
-    {
-      "id": "0bd8b530-c760-49a3-a703-a15786e2e2c5",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "content": "Pegando o beck, fumando e passando a bola!",
-      "active": true,
-      "publishedAt": "2024-11-27T23:46:19.272Z",
-      "updatedAt": null
-    },
-    {
-      "id": "046e5f76-cd7d-4ed5-a6d9-35f1f05c1a72",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "content": "Agora",
-      "active": true,
-      "publishedAt": "2024-11-28T01:31:43.788Z",
+      "publishedAt": "2024-11-29T01:20:02.520Z",
       "updatedAt": null
     }
   ],
   "comments": [
     {
-      "id": "becef36a-8c87-4afe-bb95-e9aae5df8235",
+      "id": "49aaad89-464d-4fc2-bfe8-2275ce167c81",
       "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "postId": "da66b62a-a619-47ef-a0c0-ddf83cebc9b6",
-      "content": "Comentário 335",
+      "postId": "5c6b6187-8aca-43d9-b680-d52102c2f5ff",
+      "content": "Comentário 10",
       "active": true,
-      "commentedAt": "2024-11-26T00:04:57.216Z",
+      "commentedAt": "2024-11-29T01:28:30.003Z",
       "updatedAt": null
     },
     {
-      "id": "23310622-2d34-4f40-bfb7-ee95aa986503",
+      "id": "ba3de812-798a-4c48-a44e-ee2236f5ef0d",
       "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "postId": "1edf95c3-673c-4795-a7ff-5acf4294a6b6",
-      "content": "Confesso que também fiquei com fome!",
+      "postId": "5c6b6187-8aca-43d9-b680-d52102c2f5ff",
+      "content": "Comentário 2",
       "active": true,
-      "commentedAt": "2024-11-26T23:54:57.153Z",
-      "updatedAt": null
-    },
-    {
-      "id": "12e6f57f-3b9a-480b-b0d2-074ee4cb5efc",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "postId": "0bd8b530-c760-49a3-a703-a15786e2e2c5",
-      "content": "Test 1",
-      "active": true,
-      "commentedAt": "2024-11-28T00:02:10.420Z",
+      "commentedAt": "2024-11-29T01:29:54.201Z",
       "updatedAt": null
     }
   ],
   "posts_reactions": [
     {
-      "id": "f5f38291-1852-45be-baaf-9e30fd5d0581",
+      "id": "ff2f5f07-ae22-453f-b65e-090335ab1858",
       "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "postId": "da66b62a-a619-47ef-a0c0-ddf83cebc9b6",
-      "type": "ENTENDO_VOCE",
-      "reactedAt": "2024-11-26T00:05:05.969Z"
+      "postId": "74ac0b39-21dc-4c3c-8c92-b4226dd9f5c9",
+      "type": 1,
+      "reactedAt": "2024-11-29T01:16:08.951Z"
     },
     {
-      "id": "144a1f4a-f099-4d94-a8a6-febd12d0aef2",
+      "id": "9d352bc0-efed-42f1-85c3-3d4dcae7ad9b",
       "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "postId": "0bd8b530-c760-49a3-a703-a15786e2e2c5",
-      "type": 4,
-      "reactedAt": "2024-11-28T01:22:26.628Z"
-    },
-    {
-      "id": "8686f714-6be4-4a00-8052-a8d590786dba",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "postId": "94dbfaaa-a6a5-4d86-8675-e21554a7ac61",
-      "type": "3",
-      "reactedAt": "2024-11-28T01:27:44.299Z"
-    },
-    {
-      "id": "ff423487-029a-45b5-84ac-c58d872486bb",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "postId": "046e5f76-cd7d-4ed5-a6d9-35f1f05c1a72",
+      "postId": "3d64b321-6fc1-4082-9c8a-4d076168a2c3",
       "type": 0,
-      "reactedAt": "2024-11-28T01:31:48.377Z"
+      "reactedAt": "2024-11-29T01:19:49.808Z"
+    },
+    {
+      "id": "18dd507e-eac9-4a5f-9cb5-ba682fd14a6d",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "postId": "5c6b6187-8aca-43d9-b680-d52102c2f5ff",
+      "type": 0,
+      "reactedAt": "2024-11-29T01:20:06.254Z"
     }
   ],
-  "comments_reactions": [
-    {
-      "id": "e1291728-68f6-421e-937b-42b03cb3b940",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "commentId": "becef36a-8c87-4afe-bb95-e9aae5df8235",
-      "type": "ENTENDO_VOCE",
-      "reactedAt": "2024-11-26T00:05:41.583Z"
-    }
-  ]
+  "comments_reactions": []
 }

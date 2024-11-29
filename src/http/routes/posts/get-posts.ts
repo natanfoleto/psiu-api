@@ -5,6 +5,8 @@ export async function getPosts(
   request: Request,
   response: Response,
 ): Promise<void> {
+  const { studentId } = request
+
   const posts = db.findMany('posts', { active: true })
 
   const sortedPosts = posts.sort(
@@ -24,6 +26,7 @@ export async function getPosts(
       const summaryReactions = reactions.map((reaction) => ({
         id: reaction.id,
         postId: reaction.postId,
+        isOwner: reaction.studentId === studentId,
         type: reaction.type,
         reactedAt: reaction.reactedAt,
       }))
@@ -31,6 +34,7 @@ export async function getPosts(
       return {
         id: comment.id,
         postId: comment.postId,
+        isOwner: comment.studentId === studentId,
         content: comment.content,
         commentedAt: comment.commentedAt,
         updatedAt: comment.updatedAt,
@@ -41,12 +45,14 @@ export async function getPosts(
     const summaryReactions = reactions.map((reaction) => ({
       id: reaction.id,
       postId: reaction.postId,
+      isOwner: reaction.studentId === studentId,
       type: reaction.type,
       reactedAt: reaction.reactedAt,
     }))
 
     const summaryPost = {
       id: post.id,
+      isOwner: post.studentId === studentId,
       content: post.content,
       publishedAt: post.publishedAt,
       updatedAt: post.updatedAt,
