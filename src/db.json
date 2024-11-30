@@ -69,25 +69,11 @@
   ],
   "posts_reactions": [
     {
-      "id": "ff2f5f07-ae22-453f-b65e-090335ab1858",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "postId": "74ac0b39-21dc-4c3c-8c92-b4226dd9f5c9",
-      "type": 1,
-      "reactedAt": "2024-11-29T01:16:08.951Z"
-    },
-    {
-      "id": "9d352bc0-efed-42f1-85c3-3d4dcae7ad9b",
-      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
-      "postId": "3d64b321-6fc1-4082-9c8a-4d076168a2c3",
-      "type": 0,
-      "reactedAt": "2024-11-29T01:19:49.808Z"
-    },
-    {
-      "id": "18dd507e-eac9-4a5f-9cb5-ba682fd14a6d",
+      "id": "49c2a459-d8e0-497a-a078-2a2677ffbe0a",
       "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
       "postId": "5c6b6187-8aca-43d9-b680-d52102c2f5ff",
       "type": 0,
-      "reactedAt": "2024-11-29T01:20:06.254Z"
+      "reactedAt": "2024-11-30T00:19:36.542Z"
     }
   ],
   "comments_reactions": []

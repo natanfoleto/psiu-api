@@ -37,8 +37,6 @@ export async function createPostReaction(
 
   if (postReaction) {
     if (postReaction.type !== type) {
-      console.log(type)
-
       db.update('posts_reactions', postReaction.id, {
         type,
       })
@@ -50,9 +48,11 @@ export async function createPostReaction(
 
       return
     } else {
+      db.delete('posts_reactions', postReaction.id)
+
       response.status(201).json({
         result: 'success',
-        message: 'Post reacted',
+        message: 'Reaction removed',
       })
 
       return
