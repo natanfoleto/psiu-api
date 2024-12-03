@@ -65,15 +65,33 @@
       "active": true,
       "commentedAt": "2024-11-29T01:29:54.201Z",
       "updatedAt": null
+    },
+    {
+      "id": "13cec151-f2db-41ae-953a-83f9da885c9c",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "postId": "5c6b6187-8aca-43d9-b680-d52102c2f5ff",
+      "content": "sdfsdfsdf",
+      "active": true,
+      "commentedAt": "2024-12-03T01:32:36.219Z",
+      "updatedAt": null
+    },
+    {
+      "id": "7e566c36-c9fa-4630-bc86-5e9c1a850908",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "postId": "5c6b6187-8aca-43d9-b680-d52102c2f5ff",
+      "content": "sdfsdfsdfsd",
+      "active": true,
+      "commentedAt": "2024-12-03T01:32:38.180Z",
+      "updatedAt": null
     }
   ],
   "posts_reactions": [
     {
-      "id": "49c2a459-d8e0-497a-a078-2a2677ffbe0a",
+      "id": "b571e4f1-69ce-4be8-8886-63fa8a6e65f7",
       "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
       "postId": "5c6b6187-8aca-43d9-b680-d52102c2f5ff",
-      "type": 0,
-      "reactedAt": "2024-11-30T00:19:36.542Z"
+      "type": 4,
+      "reactedAt": "2024-12-03T01:31:22.295Z"
     }
   ],
   "comments_reactions": []
