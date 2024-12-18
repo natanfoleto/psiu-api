@@ -4,11 +4,11 @@
       "id": "0d97912d-77ac-47a4-a086-655b383a71f2",
       "ra": "RA1",
       "name": "Natan Foleto",
-      "passwordHash": "$2b$10$0Vvs8SrIZdjlSb2vesBUV.t0wzbzbk6W9k5Vnz4jGQnbMYeJDq/CW",
-      "birthdate": "1999-07-10T00:00:00.000Z",
+      "passwordHash": "$2b$10$xbOwLrGr13d8LfERM54xBuT1d3xKiLQdlJp8eSURHRUTtDf8qCvhm",
+      "birthdate": "2024-12-11T00:00:00.000Z",
       "active": true,
       "createdAt": "2024-11-22T01:00:26.962Z",
-      "updatedAt": "2024-11-22T01:00:26.962Z"
+      "updatedAt": "2024-12-18T01:05:34.065Z"
     },
     {
       "id": "2bb0d081-c386-4eaf-8267-9f56c5a5735e",
@@ -114,6 +114,15 @@
       "content": "asdasdasd",
       "active": true,
       "commentedAt": "2024-12-13T00:50:24.376Z",
+      "updatedAt": null
+    },
+    {
+      "id": "1bd88c27-06b0-4dc2-b915-8d7f2d455ff5",
+      "studentId": "0d97912d-77ac-47a4-a086-655b383a71f2",
+      "postId": "73fc1a09-abeb-4ca5-bb20-aaa3b62cb815",
+      "content": "dasdasd",
+      "active": true,
+      "commentedAt": "2024-12-17T23:40:49.831Z",
       "updatedAt": null
     }
   ],
