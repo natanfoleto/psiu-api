@@ -32,6 +32,6 @@ export async function updateStudent(
 
   response.json({
     result: 'success',
-    message: 'Estudante atualizado',
+    message: 'Dados atualizados',
   })
 }
