@@ -1,8 +1,8 @@
-import { db } from '@database/client'
 import { encrytPassword } from '@lib/bcrypt'
-// import { generatePassword } from '@utils/generate-password'
-import { randomUUID } from 'crypto'
+import { prisma } from '@lib/prisma'
 import { Request, Response } from 'express'
+
+// import { generatePassword } from '@utils/generate-password'
 
 interface Body {
   ra: string
@@ -16,9 +16,13 @@ export async function createStudent(
 ): Promise<void> {
   const { ra, name, birthdate } = request.body as Body
 
-  const studentByRa = db.findMany('students', { ra })
+  const studentByRa = await prisma.student.findUnique({
+    where: {
+      ra,
+    },
+  })
 
-  if (studentByRa.length) {
+  if (studentByRa) {
     response.status(400).json({
       result: 'error',
       message: `Já existe um estudante com o RA: ${ra}`,
@@ -28,23 +32,19 @@ export async function createStudent(
   }
 
   // const password = generatePassword()
-  const passwordEncrypt = await encrytPassword('123456')
+  const passwordHash = await encrytPassword('123456')
 
-  const student = {
-    id: randomUUID(),
-    ra,
-    name,
-    passwordHash: passwordEncrypt,
-    birthdate: new Date(birthdate),
-    active: true,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  }
-
-  db.create('students', student)
+  await prisma.student.create({
+    data: {
+      name,
+      ra,
+      passwordHash,
+      birthdate: new Date(birthdate),
+    },
+  })
 
   response.status(201).json({
     result: 'success',
-    message: 'Estudando criado',
+    message: 'Estudante criado',
   })
 }

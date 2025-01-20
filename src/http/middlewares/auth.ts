@@ -1,4 +1,4 @@
-import { db } from '@database/client'
+import { prisma } from '@lib/prisma'
 import { NextFunction, Request, Response } from 'express'
 import { verify } from 'jsonwebtoken'
 
@@ -27,7 +27,11 @@ export async function authentication(
 
     const { id } = verify(token, 'psiu') as Payload
 
-    const student = db.findUnique('students', { id })
+    const student = await prisma.student.findUnique({
+      where: {
+        id,
+      },
+    })
 
     if (!student) {
       response.status(401).json({

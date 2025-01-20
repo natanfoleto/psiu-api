@@ -1,4 +1,4 @@
-import { db } from '@database/client'
+import { prisma } from '@lib/prisma'
 import { Request, Response } from 'express'
 
 interface Body {
@@ -13,7 +13,11 @@ export async function updateStudent(
   const { studentId } = request
   const { name, birthdate } = request.body as Body
 
-  const student = db.findUnique('students', { id: studentId })
+  const student = await prisma.student.findUnique({
+    where: {
+      id: studentId,
+    },
+  })
 
   if (!student) {
     response.status(400).json({
@@ -24,10 +28,14 @@ export async function updateStudent(
     return
   }
 
-  db.update('students', studentId, {
-    name,
-    birthdate: new Date(birthdate),
-    updatedAt: new Date(),
+  await prisma.student.update({
+    where: {
+      id: studentId,
+    },
+    data: {
+      name,
+      birthdate: new Date(birthdate),
+    },
   })
 
   response.json({
