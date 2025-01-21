@@ -6,6 +6,12 @@ export async function getPosts(
   response: Response,
 ): Promise<void> {
   const { studentId } = request
+  const { _page = '1', _perPage = '10' } = request.query
+
+  const page = Math.max(parseInt(_page as string, 10), 1)
+  const perPage = Math.max(parseInt(_perPage as string, 10), 1)
+
+  const offset = (page - 1) * perPage
 
   const posts = await prisma.post.findMany({
     where: {
@@ -48,7 +54,19 @@ export async function getPosts(
     orderBy: {
       publishedAt: 'desc',
     },
+    skip: offset,
+    take: perPage,
   })
+
+  const items = await prisma.post.count({
+    where: {
+      active: true,
+    },
+  })
+
+  const last = Math.ceil(items / perPage)
+  const prev = page > 1 ? page - 1 : null
+  const next = page < last ? page + 1 : null
 
   const postsResponse = posts.map((post) => {
     const comments = post.comments.map((comment) => {
@@ -83,6 +101,11 @@ export async function getPosts(
 
   response.json({
     result: 'success',
+    first: 1,
+    prev,
+    next,
+    last,
+    items,
     data: postsResponse,
   })
 }
