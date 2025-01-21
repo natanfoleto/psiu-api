@@ -1,4 +1,4 @@
-import { db } from '@database/client'
+import { prisma } from '@lib/prisma'
 import { Request, Response } from 'express'
 
 interface Params {
@@ -17,7 +17,7 @@ export async function updatePost(
   const { postId } = request.params
   const { content } = request.body as Body
 
-  const post = db.findUnique('posts', { id: postId })
+  const post = await prisma.post.findUnique({ where: { id: postId } })
 
   if (!post) {
     response.status(400).json({
@@ -28,7 +28,7 @@ export async function updatePost(
     return
   }
 
-  if (post.studentId !== studentId) {
+  if (post.ownerId !== studentId) {
     response.status(401).json({
       result: 'error',
       message: 'Operação não autorizada',
@@ -37,9 +37,13 @@ export async function updatePost(
     return
   }
 
-  db.update('posts', postId, {
-    content,
-    updatedAt: new Date(),
+  await prisma.post.update({
+    where: {
+      id: postId,
+    },
+    data: {
+      content,
+    },
   })
 
   response.json({

@@ -1,5 +1,5 @@
-import { db } from '@database/client'
 import { checkPassword, encrytPassword } from '@lib/bcrypt'
+import { prisma } from '@lib/prisma'
 import { Request, Response } from 'express'
 
 interface Body {
@@ -15,7 +15,11 @@ export async function updatePassword(
   const { studentId } = request
   const { password, newPassword, confirmNewPassword } = request.body as Body
 
-  const student = db.findUnique('students', { id: studentId })
+  const student = await prisma.student.findUnique({
+    where: {
+      id: studentId,
+    },
+  })
 
   if (!student) {
     response.status(400).json({
@@ -59,11 +63,15 @@ export async function updatePassword(
     return
   }
 
-  const passwordEncrypt = await encrytPassword(newPassword)
+  const passwordHash = await encrytPassword(newPassword)
 
-  db.update('students', studentId, {
-    passwordHash: passwordEncrypt,
-    updatedAt: new Date(),
+  await prisma.student.update({
+    where: {
+      id: studentId,
+    },
+    data: {
+      passwordHash,
+    },
   })
 
   response.json({

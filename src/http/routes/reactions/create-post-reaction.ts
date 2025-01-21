@@ -1,6 +1,5 @@
-import { db } from '@database/client'
 import { EnumTypeReaction } from '@enums/enum-type-reaction'
-import { randomUUID } from 'crypto'
+import { prisma } from '@lib/prisma'
 import { Request, Response } from 'express'
 
 interface Params {
@@ -19,7 +18,11 @@ export async function createPostReaction(
   const { postId } = request.params
   const { type } = request.body as Body
 
-  const post = db.findUnique('posts', { id: postId })
+  const post = await prisma.post.findUnique({
+    where: {
+      id: postId,
+    },
+  })
 
   if (!post) {
     response.status(400).json({
@@ -30,15 +33,22 @@ export async function createPostReaction(
     return
   }
 
-  const postReaction = db.findUnique('posts_reactions', {
-    postId,
-    studentId,
+  const postReaction = await prisma.postReaction.findFirst({
+    where: {
+      postId,
+      ownerId: studentId,
+    },
   })
 
   if (postReaction) {
     if (postReaction.type !== type) {
-      db.update('posts_reactions', postReaction.id, {
-        type,
+      await prisma.postReaction.update({
+        where: {
+          id: postReaction.id,
+        },
+        data: {
+          type,
+        },
       })
 
       response.status(201).json({
@@ -48,7 +58,11 @@ export async function createPostReaction(
 
       return
     } else {
-      db.delete('posts_reactions', postReaction.id)
+      await prisma.postReaction.delete({
+        where: {
+          id: postReaction.id,
+        },
+      })
 
       response.status(201).json({
         result: 'success',
@@ -59,12 +73,12 @@ export async function createPostReaction(
     }
   }
 
-  db.create('posts_reactions', {
-    id: randomUUID(),
-    studentId,
-    postId,
-    type,
-    reactedAt: new Date(),
+  await prisma.postReaction.create({
+    data: {
+      ownerId: studentId,
+      postId,
+      type,
+    },
   })
 
   response.status(201).json({

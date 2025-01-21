@@ -1,5 +1,4 @@
-import { db } from '@database/client'
-import { randomUUID } from 'crypto'
+import { prisma } from '@lib/prisma'
 import { Request, Response } from 'express'
 
 interface Body {
@@ -13,13 +12,11 @@ export async function createPost(
   const { studentId } = request
   const { content } = request.body as Body
 
-  db.create('posts', {
-    id: randomUUID(),
-    studentId,
-    content,
-    active: true,
-    publishedAt: new Date(),
-    updatedAt: null,
+  await prisma.post.create({
+    data: {
+      content,
+      ownerId: studentId,
+    },
   })
 
   response.status(201).json({

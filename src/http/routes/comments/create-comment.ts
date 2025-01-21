@@ -1,5 +1,4 @@
-import { db } from '@database/client'
-import { randomUUID } from 'crypto'
+import { prisma } from '@lib/prisma'
 import { Request, Response } from 'express'
 
 interface Params {
@@ -18,7 +17,11 @@ export async function createComment(
   const { postId } = request.params
   const { content } = request.body as Body
 
-  const post = db.findUnique('posts', { id: postId })
+  const post = await prisma.post.findUnique({
+    where: {
+      id: postId,
+    },
+  })
 
   if (!post) {
     response.status(400).json({
@@ -29,14 +32,12 @@ export async function createComment(
     return
   }
 
-  db.create('comments', {
-    id: randomUUID(),
-    studentId,
-    postId,
-    content,
-    active: true,
-    commentedAt: new Date(),
-    updatedAt: null,
+  await prisma.comment.create({
+    data: {
+      content,
+      postId,
+      ownerId: studentId,
+    },
   })
 
   response.status(201).json({

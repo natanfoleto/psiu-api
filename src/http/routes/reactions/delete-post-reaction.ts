@@ -1,4 +1,4 @@
-import { db } from '@database/client'
+import { prisma } from '@lib/prisma'
 import { Request, Response } from 'express'
 
 interface Params {
@@ -12,7 +12,11 @@ export async function deletePostReaction(
   const { studentId } = request
   const { reactionId } = request.params
 
-  const reaction = db.findUnique('posts_reactions', { id: reactionId })
+  const reaction = await prisma.postReaction.findUnique({
+    where: {
+      id: reactionId,
+    },
+  })
 
   if (!reaction) {
     response.status(400).json({
@@ -23,7 +27,7 @@ export async function deletePostReaction(
     return
   }
 
-  if (reaction.studentId !== studentId) {
+  if (reaction.ownerId !== studentId) {
     response.status(401).json({
       result: 'error',
       message: 'Operação não autorizada',
@@ -32,7 +36,11 @@ export async function deletePostReaction(
     return
   }
 
-  db.delete('posts_reactions', reactionId)
+  await prisma.postReaction.delete({
+    where: {
+      id: reactionId,
+    },
+  })
 
   response.json({
     result: 'success',

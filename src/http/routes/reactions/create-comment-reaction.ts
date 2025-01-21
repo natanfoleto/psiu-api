@@ -1,6 +1,5 @@
-import { db } from '@database/client'
 import { EnumTypeReaction } from '@enums/enum-type-reaction'
-import { randomUUID } from 'crypto'
+import { prisma } from '@lib/prisma'
 import { Request, Response } from 'express'
 
 interface Params {
@@ -19,7 +18,11 @@ export async function createCommentReaction(
   const { commentId } = request.params
   const { type } = request.body as Body
 
-  const comment = db.findUnique('comments', { id: commentId })
+  const comment = await prisma.comment.findUnique({
+    where: {
+      id: commentId,
+    },
+  })
 
   if (!comment) {
     response.status(400).json({
@@ -30,15 +33,22 @@ export async function createCommentReaction(
     return
   }
 
-  const commentReaction = db.findUnique('comments_reactions', {
-    commentId,
-    studentId,
+  const commentReaction = await prisma.commentReaction.findFirst({
+    where: {
+      commentId,
+      ownerId: studentId,
+    },
   })
 
   if (commentReaction) {
     if (commentReaction.type !== type) {
-      db.update('comments_reactions', commentReaction.id, {
-        type,
+      await prisma.commentReaction.update({
+        where: {
+          id: commentReaction.id,
+        },
+        data: {
+          type,
+        },
       })
 
       response.status(201).json({
@@ -48,7 +58,11 @@ export async function createCommentReaction(
 
       return
     } else {
-      db.delete('comments_reactions', commentReaction.id)
+      await prisma.commentReaction.delete({
+        where: {
+          id: commentReaction.id,
+        },
+      })
 
       response.status(201).json({
         result: 'success',
@@ -59,12 +73,12 @@ export async function createCommentReaction(
     }
   }
 
-  db.create('comments_reactions', {
-    id: randomUUID(),
-    studentId,
-    commentId,
-    type,
-    reactedAt: new Date(),
+  await prisma.commentReaction.create({
+    data: {
+      ownerId: studentId,
+      commentId,
+      type,
+    },
   })
 
   response.status(201).json({

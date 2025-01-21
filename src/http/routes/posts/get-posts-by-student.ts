@@ -1,4 +1,4 @@
-import { db } from '@database/client'
+import { prisma } from '@lib/prisma'
 import { Request, Response } from 'express'
 
 interface Params {
@@ -11,61 +11,78 @@ export async function getPostsByStudent(
 ): Promise<void> {
   const { studentId } = request.params
 
-  const posts = db.findMany('posts', { active: true, studentId })
+  const posts = await prisma.post.findMany({
+    where: {
+      active: true,
+      ownerId: studentId,
+    },
+    select: {
+      id: true,
+      content: true,
+      publishedAt: true,
+      updatedAt: true,
+      ownerId: true,
+      comments: {
+        select: {
+          id: true,
+          commentedAt: true,
+          updatedAt: true,
+          postId: true,
+          ownerId: true,
+          reactions: {
+            select: {
+              id: true,
+              type: true,
+              reactedAt: true,
+              commentId: true,
+              ownerId: true,
+            },
+          },
+        },
+      },
+      reactions: {
+        select: {
+          id: true,
+          type: true,
+          reactedAt: true,
+          postId: true,
+          ownerId: true,
+        },
+      },
+    },
+    orderBy: {
+      publishedAt: 'desc',
+    },
+  })
 
-  const sortedPosts = posts.sort(
-    (a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
-  )
-
-  const postsResponse = sortedPosts.map((post) => {
-    const comments = db.findMany('comments', { postId: post.id, active: true })
-    const reactions = db.findMany('posts_reactions', { postId: post.id })
-
-    const summaryComments = comments.map((comment) => {
-      const reactions = db.findMany('comments_reactions', {
-        commentId: comment.id,
+  const postsResponse = posts.map((post) => {
+    const comments = post.comments.map((comment) => {
+      const reactions = comment.reactions.map((reaction) => {
+        return {
+          ...reaction,
+          isOwner: reaction.ownerId === studentId,
+        }
       })
 
-      const summaryReactions = reactions.map((reaction) => ({
-        id: reaction.id,
-        postId: reaction.postId,
-        isOwner: reaction.studentId === studentId,
-        type: reaction.type,
-        reactedAt: reaction.reactedAt,
-      }))
-
       return {
-        id: comment.id,
-        postId: comment.postId,
-        isOwner: comment.studentId === studentId,
-        content: comment.content,
-        commentedAt: comment.commentedAt,
-        updatedAt: comment.updatedAt,
-        reactions: summaryReactions,
+        ...comment,
+        reactions,
+        isOwner: comment.ownerId === studentId,
       }
     })
 
-    const summaryReactions = reactions.map((reaction) => ({
-      id: reaction.id,
-      postId: reaction.postId,
-      isOwner: reaction.studentId === studentId,
-      type: reaction.type,
-      reactedAt: reaction.reactedAt,
-    }))
-
-    const summaryPost = {
-      id: post.id,
-      isOwner: true,
-      content: post.content,
-      publishedAt: post.publishedAt,
-      updatedAt: post.updatedAt,
-    }
+    const reactions = post.reactions.map((reaction) => {
+      return {
+        ...reaction,
+        isOwner: reaction.ownerId === studentId,
+      }
+    })
 
     return {
-      ...summaryPost,
-      comments: summaryComments,
-      reactions: summaryReactions,
+      ...post,
+      comments,
+      reactions,
+      isOwner: true,
     }
   })
 

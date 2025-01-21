@@ -1,4 +1,4 @@
-import { db } from '@database/client'
+import { prisma } from '@lib/prisma'
 import { Request, Response } from 'express'
 
 interface Params {
@@ -12,7 +12,11 @@ export async function inactivatePost(
   const { studentId } = request
   const { postId } = request.params
 
-  const post = db.findUnique('posts', { id: postId })
+  const post = await prisma.post.findUnique({
+    where: {
+      id: postId,
+    },
+  })
 
   if (!post) {
     response.status(400).json({
@@ -23,7 +27,7 @@ export async function inactivatePost(
     return
   }
 
-  if (post.studentId !== studentId) {
+  if (post.ownerId !== studentId) {
     response.status(401).json({
       result: 'error',
       message: 'Operação não autorizada',
@@ -32,9 +36,13 @@ export async function inactivatePost(
     return
   }
 
-  db.update('posts', postId, {
-    active: false,
-    updatedAt: new Date(),
+  await prisma.post.update({
+    where: {
+      id: postId,
+    },
+    data: {
+      active: false,
+    },
   })
 
   response.json({
