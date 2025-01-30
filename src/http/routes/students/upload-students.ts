@@ -6,6 +6,20 @@ import csvParser from 'csv-parser'
 import { Request, Response } from 'express'
 import { Stream } from 'stream'
 
+interface Student {
+  ra: string
+  name: string
+  birthdate: string
+  password_hash: string
+}
+
+interface StudentResponse {
+  ra: string
+  name: string
+  birthdate: string
+  password: string
+}
+
 export async function uploadStudents(
   request: Request,
   response: Response,
@@ -19,44 +33,54 @@ export async function uploadStudents(
     return
   }
 
-  const students: Promise<Prisma.StudentCreateManyInput>[] = []
-
   const bufferStream = new Stream.Readable()
 
   bufferStream.push(request.file.buffer)
   bufferStream.push(null)
 
   try {
+    const rawStudents: Student[] = []
+    const studentsForCreation: Prisma.StudentCreateManyInput[] = []
+    const studentsResponse: StudentResponse[] = []
+
     bufferStream
       .pipe(csvParser({ separator: ';' }))
       .on('data', async (student) => {
-        const processStudent = async () => {
+        rawStudents.push(student)
+      })
+      .on('end', async () => {
+        for (const student of rawStudents) {
+          const studentByRa = await prisma.student.count({
+            where: {
+              ra: student.ra,
+            },
+          })
+
+          if (studentByRa > 0) continue
+
           const password = generatePassword()
           const passwordHash = await encrytPassword(password)
 
-          console.log(password)
-
-          return {
+          studentsForCreation.push({
             ...student,
             birthdate: new Date(student.birthdate),
             passwordHash,
-          }
+          })
+
+          studentsResponse.push({
+            name: student.name,
+            ra: student.ra,
+            birthdate: student.birthdate,
+            password,
+          })
         }
 
-        students.push(processStudent())
-      })
-      .on('end', async () => {
-        const data = await Promise.all(students)
-
-        await prisma.student.createMany({
-          data,
-        })
-
-        console.log('Estudantes cadastrados')
+        if (studentsForCreation.length > 0)
+          await prisma.student.createMany({ data: studentsForCreation })
 
         response.json({
           result: 'success',
-          data,
+          data: studentsResponse,
           message: 'Estudantes cadastrados com sucesso',
         })
       })
