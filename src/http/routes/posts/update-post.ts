@@ -37,17 +37,52 @@ export async function updatePost(
     return
   }
 
-  await prisma.post.update({
+  const updatedPost = await prisma.post.update({
     where: {
       id: postId,
     },
     data: {
       content,
     },
+    include: {
+      comments: {
+        select: {
+          id: true,
+          content: true,
+          active: true,
+          commentedAt: true,
+          updatedAt: true,
+          ownerId: true,
+          postId: true,
+          reactions: true,
+        },
+      },
+      reactions: true,
+    },
+  })
+
+  const comments = updatedPost.comments.map((comment) => {
+    const reactions = comment.reactions.map((reaction) => ({
+      ...reaction,
+      isOwner: comment.ownerId === studentId,
+    }))
+
+    return {
+      ...comment,
+      reactions,
+      isOwner: comment.ownerId === studentId,
+    }
   })
 
   response.json({
     result: 'success',
     message: 'Post atualizado',
+    data: {
+      post: {
+        ...updatedPost,
+        comments,
+        isOwner: true,
+      },
+    },
   })
 }

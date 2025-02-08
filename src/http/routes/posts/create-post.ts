@@ -12,7 +12,7 @@ export async function createPost(
   const { studentId } = request
   const { content } = request.body as Body
 
-  await prisma.post.create({
+  const post = await prisma.post.create({
     data: {
       content,
       ownerId: studentId,
@@ -22,5 +22,13 @@ export async function createPost(
   response.status(201).json({
     result: 'success',
     message: 'Post criado',
+    data: {
+      post: {
+        ...post,
+        comments: [],
+        reactions: [],
+        isOwner: true,
+      },
+    },
   })
 }
