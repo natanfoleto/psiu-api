@@ -32,7 +32,7 @@ export async function createComment(
     return
   }
 
-  await prisma.comment.create({
+  const comment = await prisma.comment.create({
     data: {
       content,
       postId,
@@ -43,5 +43,12 @@ export async function createComment(
   response.status(201).json({
     result: 'success',
     message: 'Comentário criado',
+    data: {
+      comment: {
+        ...comment,
+        reactions: [],
+        isOwner: true,
+      },
+    },
   })
 }

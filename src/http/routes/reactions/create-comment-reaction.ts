@@ -73,7 +73,7 @@ export async function createCommentReaction(
     }
   }
 
-  await prisma.commentReaction.create({
+  const reaction = await prisma.commentReaction.create({
     data: {
       ownerId: studentId,
       commentId,
@@ -84,5 +84,11 @@ export async function createCommentReaction(
   response.status(201).json({
     result: 'success',
     message: 'Comentário reagido',
+    data: {
+      reaction: {
+        ...reaction,
+        isOwner: true,
+      },
+    },
   })
 }

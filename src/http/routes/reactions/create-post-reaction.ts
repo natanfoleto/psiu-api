@@ -73,7 +73,7 @@ export async function createPostReaction(
     }
   }
 
-  await prisma.postReaction.create({
+  const reaction = await prisma.postReaction.create({
     data: {
       ownerId: studentId,
       postId,
@@ -84,5 +84,11 @@ export async function createPostReaction(
   response.status(201).json({
     result: 'success',
     message: 'Post reagido',
+    data: {
+      reaction: {
+        ...reaction,
+        isOwner: true,
+      },
+    },
   })
 }

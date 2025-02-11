@@ -26,6 +26,7 @@ export async function getPosts(
       comments: {
         select: {
           id: true,
+          content: true,
           commentedAt: true,
           updatedAt: true,
           postId: true,
