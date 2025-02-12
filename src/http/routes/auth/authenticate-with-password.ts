@@ -56,6 +56,7 @@ export async function authenticateWithPassword(
   // Seta o token no cookie do response
   response.cookie('token', token, {
     httpOnly: true,
+    secure: true,
     sameSite: 'none',
     maxAge: Number(process.env.JWT_MAX_AGE),
   })
