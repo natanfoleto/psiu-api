@@ -14,6 +14,8 @@ export async function authentication(
   try {
     const cookieToken = request.headers.cookie
 
+    console.log(cookieToken)
+
     if (!cookieToken) {
       response.status(401).json({
         result: false,
