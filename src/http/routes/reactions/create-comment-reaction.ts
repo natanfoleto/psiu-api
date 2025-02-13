@@ -54,6 +54,13 @@ export async function createCommentReaction(
       response.status(201).json({
         result: 'success',
         message: 'Comment reagido',
+        data: {
+          reaction: {
+            ...commentReaction,
+            type,
+            isOwner: true,
+          },
+        },
       })
 
       return
