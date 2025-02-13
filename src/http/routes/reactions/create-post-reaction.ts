@@ -54,6 +54,13 @@ export async function createPostReaction(
       response.status(201).json({
         result: 'success',
         message: 'Post reagido',
+        data: {
+          reaction: {
+            ...postReaction,
+            type,
+            isOwner: true,
+          },
+        },
       })
 
       return
